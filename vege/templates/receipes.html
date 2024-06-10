@@ -1,0 +1,30 @@
+{% extends "top.html" %}
+{% block start %}
+
+<div class="container mt-5">
+
+    <form class="col-6 mx-auto card p-3" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h2> Add Recipe </h2>
+        <div class="mb-3">
+            <label for="recipe_name" class="form-label">Recipe Name</label>
+            <input type="text" id="recipe_name" name="recipe_name" required class="form-control">
+        </div>
+        <div class="mb-3">
+            <label for="recipe_description" class="form-label">Recipe Description</label>
+            <textarea id="recipe_description" name="recipe_description" required class="form-control"></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="recipe_image" class="form-label">Recipe Image</label>
+            <input type="file" id="recipe_image" name="recipe_image" class="form-control">
+        </div>
+        <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        </div>
+        <button type="submit" class="btn btn-success">Add Recipe</button>
+    </form>
+
+</div>
+
+{% endblock %}

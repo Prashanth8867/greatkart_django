@@ -1,0 +1,91 @@
+
+{% extends "top.html" %}  #like inheritance
+{% block start %}
+
+    <h1>this template is return by django server</h1>
+    <h2>Welcome to bengaluru's hotels </h2>
+    <h3>this is good_page</h3>
+    <p>A hotel description typically provides detailed information about the hotel's features, amenities, services, location, and other relevant details. Here's a structured outline of what a hotel description might include:
+        <hr>
+        * Introduction:
+        Brief overview of the hotel.
+        Mention of any unique selling points or special features.
+        <p>1.Location:
+        Description of the hotel's location, including proximity to landmarks, attractions, transportation hubs, etc.
+        Information about the surrounding area, such as nearby restaurants, shops, and points of interest.
+        </p>
+        <p>
+        2.Accommodation:
+        Description of the types of rooms available (e.g., standard rooms, suites, etc.).
+        Details about room amenities (e.g., bed size, view, in-room facilities).
+        Any special room features or upgrades available.
+        </p>
+        <p>
+        3.Dining:
+        Overview of the hotel's dining options, including restaurants, cafes, bars, etc.
+        Description of the cuisine offered and any specialties.
+        Information about dining hours, reservations, and menus.
+        </p>
+        <p>
+        4.Facilities and Services:
+        List of on-site facilities available to guests (e.g., swimming pool, gym, spa, business center).
+        </p>
+
+    </p>
+    
+    {{peoples}}
+
+    <table class='container'>    >
+        <tr>
+          <th>S.No/</th>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Can Vote</th>
+
+        </tr>
+      
+        {% for people in peoples %}	 
+      
+        <tr>
+          <td>{{forloop.counter}}</td>
+          <td>{{people.name}}</td>
+          <td>{{people.age}}</td>
+          <td {% if people.age < 18 %} style = "background : red"{% endif %}>
+            {% if people.age >= 18 %}
+            👍
+            {% else %}
+            👎
+            {% endif %}
+          </td>
+          
+        </tr>
+      
+        {% endfor %}	 
+        
+      </table>
+
+      <hr>
+      <hr>
+      <p>
+        {% if "cucumber" in vegetables %}
+         Yes Available
+        {% else %}
+         Not Available
+        {% endif %}
+       </p>
+
+      <a href="/bad/">
+        bad
+      </a>
+    |
+      <a href="/mod/">
+        mod
+      </a>
+      
+
+      <h4>the end.............</h4>
+      <hr>
+
+      <hr>
+	
+{% endblock %}
